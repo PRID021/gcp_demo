@@ -1,0 +1,13 @@
+steps:
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/upbeat-orb-355004/mydemo', '.']
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/upbeat-orb-355004/mydemo']
+# Deploy container image to Cloud Run
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args: ['run', 'deploy', 'mydemo', '--image', 'gcr.io/upbeat-orb-355004/mydemo', '--region', 'asia-southeast1 ','--port','8080']
+images:
+- gcr.io/upbeat-orb-355004/mydemo
