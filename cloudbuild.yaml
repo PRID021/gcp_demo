@@ -8,6 +8,6 @@ steps:
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'mydemo', '--image', 'gcr.io/upbeat-orb-355004/mydemo', '--region', 'asia-southeast1 ','--port','8080']
+  args: ['run', 'deploy', 'mydemo', '--image', 'gcr.io/upbeat-orb-355004/mydemo', '--region', 'asia-southeast1','--port','8080']
 images:
 - gcr.io/upbeat-orb-355004/mydemo
